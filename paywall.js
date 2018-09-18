@@ -59,7 +59,6 @@ exports.handler = (event, context, callback) => {
         const jwtToken = parsedCookies['londonsheriff-Token'];
         const b64string = config.web.base64SigningKey;
         const verifiedToken = nJwt.verify(jwtToken, b64string);
-        console.log("PTK:: VERIFIED" + verifiedToken);
 
         // TODO: Decide what to do when the passed token is not valid or expired
 
@@ -85,10 +84,7 @@ exports.handler = (event, context, callback) => {
                     if (scope.hasOwnProperty(key) && key != 'language') {
                         for (var i = 0; i < jsonBody.length; i++) {
                             let article = jsonBody[i];
-                            console.log('ptk: going through article ' + i);
-                            console.log('ptk: going through key ' + key);
                             if (article['field_tags'].indexOf(key) > 0) {
-                                console.log('ptk: push ' + key);
                                 responseBody.push({'title': article['title'], 'body': article['body']})
                             }
                         }
