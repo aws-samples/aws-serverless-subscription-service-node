@@ -2,7 +2,7 @@
 
 ## Summary 
 
-This is the code example for the blog post [Link] [Building Serverless Subscription Service using Lambda@Edge] 
+This is the code example for the blog post [Building Serverless Subscription Service using Lambda@Edge](https://aws.amazon.com/blogs/networking-and-content-delivery/building-a-serverless-subscription-service-using-lambdaedge) 
 Our example application supports providing a custom experience for website visitors who sign in to the site, so we start by authenticating users when they navigate to the website in their browser. 
 
 ## Step-by-Step Setup Guide
