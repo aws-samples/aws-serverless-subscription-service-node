@@ -37,9 +37,6 @@ const signingKey = Buffer.from(b64string, 'base64') || secureRandom(256, {type: 
 let responseStatus = 404;
 let responseBody = {'error':{'code':responseStatus,'message':'Not Found'}};
 
-//const ENTITLEMENTS_TABLE = process.env.ENTITLEMENTS_TABLE;
-//TODO: VK 2/23 no idea why its not able to read the env variable,
-// getting MissingRequiredParameter exception; will look at it later!
 const ENTITLEMENTS_TABLE = 'entitlements-table-dev';
 const ROOT_PATH = config.web.rootPath;
 const LOGIN_PATH = '/api/login/';
