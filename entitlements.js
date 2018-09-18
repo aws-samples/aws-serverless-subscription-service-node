@@ -34,9 +34,6 @@ const signingKey = Buffer.from(b64string, 'base64') || secureRandom(256, {type: 
 //const base64SigningKey = signingKey.toString('base64');
 //console.log(base64SigningKey);
 
-//const ENTITLEMENTS_TABLE = process.env.ENTITLEMENTS_TABLE;
-//TODO: VK 2/23 no idea why its not able to read the env variable,
-// getting MissingRequiredParameter exception; will look at it later!
 const ENTITLEMENTS_TABLE = 'entitlements-table-dev';
 const ROOT_PATH = config.web.rootPath;
 const ENTITLEMENTS_PATH = '/api/entitlements/';
@@ -46,52 +43,6 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient({
 });
 
 app.use(bodyParser.json({ strict: false }));
-
-// app.use((req, res, next) => {
-//     var d = new Date();
-//     console.log(`${d.toISOString()}\t${req.method}\t${req.url}\t${req.header('authorization')}`);
-
-//     if (!req.headers['authorization']) {
-//         res.status(401).json({ error: 'Unauthorized' });
-//     } else {
-//         try {
-//             // console.log(req.headers['authorization']);
-//             let token = req.headers['authorization'].slice(7);
-//             // console.log(token);
-//             console.log(req.headers['cookie']);
-//             if(!req.headers['cookie'].includes(token)) {
-//                 res.status(401).json({ error: 'Unauthorized', details: "Authorization token doesn't match the cookie provided"});
-//             }
-
-//             let verifiedJwt = nJwt.verify(token,signingKey);
-//             // console.log(verifiedJwt);
-//             // console.log(`scope: ${verifiedJwt.body.scope}`);
-//             let attribute = verifiedJwt.body.scope[ENTITLEMENTS_SCOPE];
-//             let hasPermission=false;
-//             switch(res.method){
-//                 case "GET":
-//                 if (attribute.includes("r")) {
-//                     hasPermission=true;
-//                 }
-//                 break;
-//                 default:
-//                 if (attribute.includes("w")) {
-//                     hasPermission=true;
-//                 }
-//             }
-//             console.log(`sub: ${verifiedJwt.body.sub}\turl: ${req.url}\tattribute: ${attribute}\thasPermission: ${hasPermission}`);
-//             !hasPermission && res.status(403).json({ error: 'Forbidden' });
-//         } catch(error) {
-//             res.status(401).json({ error: 'Unauthorized', details: error.message });
-//             console.log(error);
-//         }
-//     }
-    
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, MY_CUSTOM_HEADER");    
-//     bodyParser.json({ strict: false });
-//     next();
-// });
 
 // Get all active entitlements endpoint
 app.get(ENTITLEMENTS_PATH, function (req, res) {
