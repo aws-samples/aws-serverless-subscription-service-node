@@ -1,0 +1,94 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
+
+    <title>Entitlements</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+  <table id="entitlements" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+      <tr>
+        <th>User Id</th>
+        <th>Name</th>
+        <th>Entitlement</th>
+        <th>validFrom</th>
+        <th>validTo</th>
+        <th>Entered</th>
+        <th>Entered By</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+          <th>User Id</th>
+          <th>Name</th>
+          <th>Entitlement</th>
+          <th>validFrom</th>
+          <th>validTo</th>
+          <th>Entered</th>
+          <th>Entered By</th>
+      </tr>
+    </tfoot>
+  </table>
+  </body>
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="js/dataTables.bootstrap4.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+      $('#entitlements').DataTable( {
+          "ajax": {
+              "url": "api/entitlements",
+              "dataSrc": "Items"
+          },
+          "columns": [
+            {
+              "data": "userId",
+              "render": function ( data, type, row, meta ) {
+                return data;
+              }
+            },
+            { "data": "name" },
+            {
+              "data": "entitlement",
+              "render": function ( data, type, row, meta ) {
+                  let htmlString = "";
+                  for(const prop in data) {
+                  htmlString = htmlString + `${prop} = ${data[prop]}<br/>`;
+                  }
+                  return htmlString;
+              }
+            },
+            {
+              "data": "validFrom",
+              "visible": false
+            },
+            {
+              "data": "validTo",
+              "visible": false
+            },
+            {
+              "data": "entered",
+              "render": function ( data, type, row, meta ) {
+                d = new Date(data);
+                return d.toDateString();
+              }
+            },
+            { "data": "enteredBy" }
+          ]
+      } );
+  } );
+  </script>
+</html>

@@ -1,0 +1,53 @@
+{
+  "name": "serverlesssubscriptionplatform-master",
+  "version": "1.0.0",
+  "description": "Serverless subscription platform using Serverless, Express.js and Node.js",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "REST",
+    "API",
+    "Serverless",
+    "Express",
+    "Express.js",
+    "Dynomo",
+    "DynomoDB",
+    "CloudFormation",
+    "CloudWatch",
+    "API Gateway",
+    "JSON Web Token",
+    "JWT",
+    "Node",
+    "Node.js",
+    "AWS",
+    "Lambda",
+    "AWS Lambda",
+    "CloudFront",
+    "Amazon CloudFront",
+    "Lambda@Edge",
+    "SSP",
+    "Serverless Subscription Platform",
+    "Serverless subscription platform"
+  ],
+  "author": "Vasanth Kumararajan <vkumarar@amazon.com>",
+  "contributors": [
+    "Prateek Yadav <prateeky@amazon.com>"
+  ],
+  "license": "MIT-0",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "njwt": "^0.4.0",
+    "package.json": "^2.0.1",
+    "secure-random": "^1.1.1",
+    "serverless-http": "^1.5.3",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.202.0"
+  }
+}
