@@ -1,0 +1,41 @@
+{
+  "name": "serverlesssubscriptionplatform-master",
+  "version": "1.0.0",
+  "description": "Serverless subscription platform using Serverless, Express.js and Node.js",
+  "main": "paywall.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "REST",
+    "API",
+    "Serverless",
+    "Express",
+    "Express.js",
+    "Dynomo",
+    "DynomoDB",
+    "CloudFormation",
+    "CloudWatch",
+    "API Gateway",
+    "JSON Web Token",
+    "JWT",
+    "Node",
+    "Node.js",
+    "AWS",
+    "Lambda",
+    "AWS Lambda",
+    "CloudFront",
+    "Amazon CloudFront",
+    "Lambda@Edge",
+    "SSP",
+    "Serverless Subscription Platform",
+    "Serverless subscription platform"
+  ],
+  "author": "vkumarar@amazon.com",
+  "license": "MIT-0",
+  "dependencies": {
+    "njwt": "^0.4.0",
+    "package.json": "^2.0.1"
+  },
+  "devDependencies": {}
+}

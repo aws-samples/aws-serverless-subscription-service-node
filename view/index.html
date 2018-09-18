@@ -1,0 +1,85 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico"> 
+
+    <title>Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+  </head>
+
+  <body>
+    <div id="target">Loading...</div>
+    <script id="template" type="x-tmpl-mustache">
+        <h1>{{ hello }}</h1>
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                <div class="col-md-4">
+                <h2>Compute</h2>
+                {{#compute}}
+                    <p>
+                    <strong>{{title}}</strong>
+                    <p></p>
+                    {{body}}
+                    </p>
+                {{/compute}}
+                </div>
+                <div class="col-md-4">
+                <h2>Security</h2>
+                {{#security}}
+                    <p>
+                    <strong>{{title}}</strong>
+                    <p></p>
+                    {{body}}
+                    </p>
+                {{/security}}
+                </div>
+                <div class="col-md-4">
+                <h2>Edge</h2>
+                {{#edge}}
+                    <p>
+                    <strong>{{title}}</strong>
+                    <p></p>
+                    {{body}}
+                    </p>
+                {{/edge}}
+                </div>
+            </div>
+    
+            </div> <!-- /container -->
+    </script>
+  </body>
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/mustache.min.js"></script> 
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $.ajax
+      ({
+        type: "GET",
+        url: "articles?_=" + (new Date()).getTime(),
+        dataType: 'json',
+        success: function (data) {
+          console.log(JSON.stringify(data));
+          let template = $('#template').html();
+          Mustache.parse(template);   // optional, speeds up future uses
+          let rendered = Mustache.render(template, data);
+          $('#target').html(rendered);
+        },
+        error: function (req, status, error) {
+          console.log(status);
+        }
+      });
+    });
+  </script>
+</html>

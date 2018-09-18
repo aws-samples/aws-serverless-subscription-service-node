@@ -1,0 +1,69 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico"> 
+
+    <title>Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/login.css" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+    <form class="form-login">
+      <img class="mb-4" src="images/AWS_logo_RGB.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
+      <label for="inputUserId" class="sr-only">User name</label>
+      <input type="userId" id="inputUserId" class="form-control" placeholder="User name" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button id="login" class="btn btn-lg btn-primary btn-block" type="button">Login</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+  </body>
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    $("#login").click(function() {
+      let userId = $("input#inputUserId").val();
+      let password = $("input#inputPassword").val();
+
+      $.ajax
+      ({
+        type: "POST",
+        url: "api/login?_=" + (new Date()).getTime(),
+        dataType: 'json',
+        async: false,
+        headers: {
+          "Authorization" : "Basic " + btoa(userId + ":" + password)
+        },
+        data: {
+          "userId" : userId,
+          "pwd" : password
+        },
+        success: function (data) {
+          alert(JSON.stringify(data));
+          window.location.assign("./");
+        },
+        error: function (req, status, error) {
+          alert(status);
+        }
+      });
+    });
+    
+  </script>
+</html>

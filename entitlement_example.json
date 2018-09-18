@@ -1,0 +1,9 @@
+{
+	"userId": "user1",
+	"name": "full_name",
+	"entitlement": {"compute":"2018-05-11T00:00:00Z", "security":"2018-05-18T00:00:00Z", "edge":"2018-05-09T00:00:00Z", "language":"hi"},
+	"validFrom": "2018-04-17T00:00:00Z",
+	"validTo": "9999-12-31T23:59:59Z",
+	"entered": "2018-04-17T00:00:00Z",
+	"enteredBy": "yourname"
+}
