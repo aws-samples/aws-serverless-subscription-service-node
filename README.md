@@ -11,7 +11,7 @@ Our example application supports providing a custom experience for website visit
 
 ```sh
 $ npm install -g serverless
-$ git pull <repo url>
+$ git pull https://github.com/aws-samples/aws-serverless-subscription-service-node.git
 $ cd to the repository folder
 $ npm install package.json --save
 $ serverless deploy -v
