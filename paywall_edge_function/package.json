@@ -34,7 +34,7 @@
   "author": "vkumarar@amazon.com",
   "license": "MIT-0",
   "dependencies": {
-    "njwt": "^0.4.0",
+    "njwt": "^1.0.0",
     "package.json": "^2.0.1"
   },
   "devDependencies": {}
