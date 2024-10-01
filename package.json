@@ -41,7 +41,7 @@
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.19.2",
-    "njwt": "^1.0.0",
+    "njwt": "^2.0.1",
     "package.json": "^2.0.1",
     "secure-random": "^1.1.1",
     "serverless-http": "^1.5.3",
