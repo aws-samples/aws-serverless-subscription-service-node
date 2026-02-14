@@ -38,9 +38,9 @@
   ],
   "license": "MIT-0",
   "dependencies": {
-    "body-parser": "^1.20.3",
+    "body-parser": "^1.20.4",
     "cookie-parser": "^1.4.7",
-    "express": "^4.21.2",
+    "express": "^4.22.1",
     "njwt": "^2.0.1",
     "package.json": "^2.0.1",
     "secure-random": "^1.1.1",
